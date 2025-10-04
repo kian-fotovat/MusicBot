@@ -103,7 +103,7 @@ DEFAULT_LOGS_ROTATE_FORMAT: str = ".ended-%Y-%j-%H%m%S"
 DEFAULT_LOG_LEVEL: str = "INFO"
 
 # Default target FQDN or IP to ping with network tester.
-DEFAULT_PING_TARGET: str = "discord.com"
+DEFAULT_PING_TARGET: str = "google.com"
 # Default file location URI used by fallback HTTP network testing.
 # This URI must be available via standard HTTP on the above domain/IP target.
 DEFAULT_PING_HTTP_URI: str = "/robots.txt"
