@@ -437,6 +437,11 @@ class Playlist(EventEmitter, Serializable):
         else:
             self.entries.append(entry)
 
+        self.bot.create_task(
+            self._pre_download_new_entry(entry),
+            name="MB_PreDownloadNextUp",
+        )
+
         if self.bot.config.round_robin_queue and not entry.from_auto_playlist:
             self.reorder_for_round_robin()
 
@@ -455,17 +460,13 @@ class Playlist(EventEmitter, Serializable):
             return None
 
         entry = self.entries.popleft()
-        self.bot.create_task(
-            self._pre_download_entry_after_next(entry),
-            name="MB_PreDownloadNextUp",
-        )
 
         return await entry.get_ready_future()
 
-    async def _pre_download_entry_after_next(self, last_entry: EntryTypes) -> None:
+    async def _pre_download_new_entry(self, new_entry: EntryTypes) -> None:
         """
-        Enforces a delay before doing pre-download of the "next" song.
-        Should only be called from get_next_entry() after pop.
+        Enforces a delay before doing pre-download of the song that was just queued.
+        Should only be called from add_entry() after append.
         """
         if not self.bot.config.pre_download_next_song:
             return
@@ -473,16 +474,13 @@ class Playlist(EventEmitter, Serializable):
         if not self.entries:
             return
 
-        # get the next entry to pre-download before we wait.
-        next_entry = self.peek()
-
         await asyncio.sleep(DEFAULT_PRE_DOWNLOAD_DELAY)
 
-        if next_entry and next_entry != last_entry:
+        if new_entry:
             log.everything(  # type: ignore[attr-defined]
-                "Pre-downloading next track:  %r", next_entry
+                "Pre-downloading next track:  %r", new_entry
             )
-            next_entry.get_ready_future()
+            new_entry.get_ready_future()
 
     def peek(self) -> Optional[EntryTypes]:
         """
