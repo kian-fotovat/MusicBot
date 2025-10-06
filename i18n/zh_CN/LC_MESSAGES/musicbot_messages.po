@@ -29,7 +29,7 @@ msgid ""
 "\n"
 "Solution:\n"
 "  Replace the alias config file(s) or copy them from:\n"
-"    https://github.com/Just-Some-Bots/MusicBot/"
+"    https://github.com/kian-fotovat/MusicBot/"
 msgstr ""
 "加载别名时出错。\n"
 "\n"
@@ -38,7 +38,7 @@ msgstr ""
 "\n"
 "解决方案：\n"
 "  替换别名配置文件或复制它们：\n"
-"    https://github.com/Just-Some-Bots/MusicBot/"
+"    https://github.com/kian-fotovat/MusicBot/"
 
 #. Used by: CommandError
 #: musicbot/bot.py:726
@@ -2573,7 +2573,7 @@ msgstr "在聊天中显示 MusicBot 版本号。"
 #: musicbot/bot.py:8018
 #, python-format
 msgid ""
-"https://github.com/Just-Some-Bots/MusicBot\n"
+"https://github.com/kian-fotovat/MusicBot\n"
 "Current version:  `%(version)s`"
 msgstr ""
 

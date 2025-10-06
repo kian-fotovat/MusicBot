@@ -17,7 +17,7 @@ fi
 
 
 #-----------------------------------------------Configs-----------------------------------------------#
-MusicBotGitURL="https://github.com/Just-Some-Bots/MusicBot.git"
+MusicBotGitURL="https://github.com/kian-fotovat/MusicBot.git"
 CloneDir="MusicBot"
 VenvDir="MusicBotVenv"
 InstallDir=""
@@ -765,7 +765,7 @@ and verify the steps for your OS and distro version are correct.
 Please consider contributing corrections or new steps if you find issues with this installer.
 You may also find installation guides on the wiki or community help on our discord server.
 Wiki:
-    https://just-some-bots.github.io/MusicBot/
+    https://kian-fotovat.github.io/MusicBot/
 Discord:
     https://discord.gg/bots
 

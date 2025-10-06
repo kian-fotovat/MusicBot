@@ -48,7 +48,7 @@ DEFAULT_PERMS_GROUP_NAME: str = "Default"
 # Meaning discord API and spotify API communications.
 # NOT used by ytdlp, they have a dynamic UA selection feature.
 MUSICBOT_USER_AGENT_AIOHTTP: str = f"MusicBot/{VERSION}"
-MUSICBOT_GIT_URL: str = "https://github.com/Just-Some-Bots/MusicBot/"
+MUSICBOT_GIT_URL: str = "https://github.com/kian-fotovat/MusicBot/"
 # The Environment variable MusicBot checks for if no Token is given in the config file.
 MUSICBOT_TOKEN_ENV_VAR: str = "MUSICBOT_TOKEN"
 

@@ -8099,7 +8099,7 @@ class MusicBot(discord.Client):
         """Command to check MusicBot version string in discord."""
         return Response(
             _D(
-                "https://github.com/Just-Some-Bots/MusicBot\n"
+                "https://github.com/kian-fotovat/MusicBot\n"
                 "Current version:  `%(version)s`",
                 ssd_,
             )

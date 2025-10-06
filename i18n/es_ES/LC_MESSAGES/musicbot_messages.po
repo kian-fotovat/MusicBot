@@ -30,7 +30,7 @@ msgid ""
 "\n"
 "Solution:\n"
 "  Replace the alias config file(s) or copy them from:\n"
-"    https://github.com/Just-Some-Bots/MusicBot/"
+"    https://github.com/kian-fotovat/MusicBot/"
 msgstr ""
 "Error al cargar los alias.\n"
 "\n"
@@ -39,7 +39,7 @@ msgstr ""
 "\n"
 "Solución:\n"
 "  Reemplace los archivos de configuración de alias o cópialos de:\n"
-"    https://github.com/Just-Some-Bots/MusicBot/"
+"    https://github.com/kian-fotovat/MusicBot/"
 
 #. Used by: CommandError
 #: musicbot/bot.py:726
@@ -2931,10 +2931,10 @@ msgstr "Mostrar el número de versión de MusicBot en el chat."
 #: musicbot/bot.py:8018
 #, python-format
 msgid ""
-"https://github.com/Just-Some-Bots/MusicBot\n"
+"https://github.com/kian-fotovat/MusicBot\n"
 "Current version:  `%(version)s`"
 msgstr ""
-"https://github.com/Just-Some-Bots/MusicBot\n"
+"https://github.com/kian-fotovat/MusicBot\n"
 "Versión actual: `%(version)s`"
 
 #. Used by: _Dd

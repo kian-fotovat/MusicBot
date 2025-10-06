@@ -484,7 +484,7 @@ def req_ensure_env() -> None:
         log.critical(
             "MusicBot was not installed using Git.\n"
             "Check the documentation for install guides:\n"
-            "  https://just-some-bots.github.io/MusicBot/"
+            "  https://kian-fotovat.github.io/MusicBot/"
         )
         bugger_off()
 
@@ -691,7 +691,7 @@ def parse_cli_args() -> argparse.Namespace:
             )
             + "\n"
             + _L("Available via Github:")
-            + "\n  https://github.com/Just-Some-Bots/MusicBot"
+            + "\n  https://github.com/kian-fotovat/MusicBot"
         ),
         epilog=(
             _L("For more help and support with this bot, join our discord:")

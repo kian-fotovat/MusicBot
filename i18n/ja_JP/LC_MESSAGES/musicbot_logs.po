@@ -34,7 +34,7 @@ msgid ""
 "\n"
 "Solution:\n"
 "  Replace the alias config file(s) or copy them from:\n"
-"    https://github.com/Just-Some-Bots/MusicBot/"
+"    https://github.com/kian-fotovat/MusicBot/"
 msgstr ""
 
 #. Used by: error
@@ -5323,7 +5323,7 @@ msgstr ""
 msgid ""
 "MusicBot was not installed using Git.\n"
 "Check the documentation for install guides:\n"
-"  https://just-some-bots.github.io/MusicBot/"
+"  https://kian-fotovat.github.io/MusicBot/"
 msgstr ""
 
 #. Used by: _L

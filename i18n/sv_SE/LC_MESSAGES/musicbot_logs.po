@@ -34,7 +34,7 @@ msgid ""
 "\n"
 "Solution:\n"
 "  Replace the alias config file(s) or copy them from:\n"
-"    https://github.com/Just-Some-Bots/MusicBot/"
+"    https://github.com/kian-fotovat/MusicBot/"
 msgstr ""
 "Fel vid laddning av aliseringar.\n"
 "\n"
@@ -43,7 +43,7 @@ msgstr ""
 "\n"
 "Lösning:\n"
 "  Ersätt alias config fil(er) eller kopiera dem från:\n"
-"    https://github.com/Just-Some-Bots/MusicBot/"
+"    https://github.com/kian-fotovat/MusicBot/"
 
 #. Used by: error
 #: musicbot/aliases.py:80
@@ -5627,7 +5627,7 @@ msgstr ""
 msgid ""
 "MusicBot was not installed using Git.\n"
 "Check the documentation for install guides:\n"
-"  https://just-some-bots.github.io/MusicBot/"
+"  https://kian-fotovat.github.io/MusicBot/"
 msgstr ""
 
 #. Used by: _L

@@ -60,7 +60,7 @@ class Aliases:
                     "\n"
                     "Solution:\n"
                     "  Replace the alias config file(s) or copy them from:\n"
-                    "    https://github.com/Just-Some-Bots/MusicBot/",
+                    "    https://github.com/kian-fotovat/MusicBot/",
                     # fmt: on
                 )
 

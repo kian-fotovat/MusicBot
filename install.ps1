@@ -33,7 +33,7 @@ $Install_Dir = (pwd).Path + '\MusicBot\'
 "Please consider contributing corrections or new steps if you find issues with this installer."
 "You may also find installation guides on the wiki or community help on our discord server."
 "Wiki:"
-"    https://just-some-bots.github.io/MusicBot/"
+"    https://kian-fotovat.github.io/MusicBot/"
 "Discord:"
 "    https://discord.gg/bots"
 ""
@@ -106,7 +106,7 @@ Remove-Item "cert.fetch"
 # -----------------------------------------------------CONSTANTS-------------------------------------------------------
 
 $DEFAULT_URL_BASE = "https://discordapp.com/api"
-$MB_RepoURL = "https://github.com/Just-Some-Bots/MusicBot.git"
+$MB_RepoURL = "https://github.com/kian-fotovat/MusicBot.git"
 
 # ----------------------------------------------INSTALLING DEPENDENCIES------------------------------------------------
 $NeedsEnvReload = 0
