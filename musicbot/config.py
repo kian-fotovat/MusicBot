@@ -562,6 +562,17 @@ class Config:
                 "Currently this option does not apply to auto playlist or songs added to an empty queue."
             ),
         )
+        self.max_pre_downloads: int = self.register.init_option(
+            section="Playback",
+            option="MaxPreDownloads",
+            dest="max_pre_downloads",
+            default=ConfigDefaults.max_pre_downloads,
+            getter="getint",
+            comment=_Dd(
+                "Sets the maximum number of songs that can be pre-downloaded and cached. "
+                "Only applies when PreDownloadNextSong is enabled."
+            ),
+        )
         self.use_experimental_equalization: bool = self.register.init_option(
             section="Playback",
             option="UseExperimentalEqualization",
@@ -1533,6 +1544,8 @@ class ConfigDefaults:
     storage_retain_autoplay: bool = True
     storage_limit_bytes: int = 0
     storage_limit_days: int = 0
+    pre_download_next_song: bool = True
+    max_pre_downloads: int = 5
     now_playing_mentions: bool = False
     auto_summon: bool = True
     auto_playlist: bool = True
@@ -1580,16 +1593,12 @@ class ConfigDefaults:
     ytdlp_source_address: str = "*"
     ytdlp_concurrent_frags: int = 1
     downloader_threads_max: int = 2
-
-    pre_download_next_song: bool = True
     default_search_service: str = "ytsearch"
-
     song_blocklist: Set[str] = set()
     user_blocklist: Set[int] = set()
     song_blocklist_enabled: bool = False
     # default true here since the file being populated was previously how it was enabled.
     user_blocklist_enabled: bool = True
-
     logs_max_kept: int = DEFAULT_LOGS_KEPT
     logs_date_format: str = DEFAULT_LOGS_ROTATE_FORMAT
 

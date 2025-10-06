@@ -438,8 +438,8 @@ class Playlist(EventEmitter, Serializable):
             self.entries.append(entry)
 
         self.bot.create_task(
-            self._pre_download_new_entry(entry),
-            name="MB_PreDownloadNextUp",
+            self._ensure_pre_downloads(),
+            name="MB_EnsurePreDownloads"
         )
 
         if self.bot.config.round_robin_queue and not entry.from_auto_playlist:
@@ -453,34 +453,58 @@ class Playlist(EventEmitter, Serializable):
         """
         A coroutine which will return the next song or None if no songs left to play.
 
-        Additionally, if predownload_next is set to True, it will attempt to download the next
-        song to be played - so that it's ready by the time we get to it.
+        Additionally, if predownload_next_song is set to True, it will attempt to download up
+        to max_pre_downloads songs, if needed.
         """
         if not self.entries:
             return None
 
         entry = self.entries.popleft()
+        if self.bot.config.pre_download_next_song:
+            self.bot.create_task(
+                self._ensure_pre_downloads(),
+                name="MB_EnsurePreDownloads",
+            )
 
         return await entry.get_ready_future()
 
-    async def _pre_download_new_entry(self, new_entry: EntryTypes) -> None:
+    async def _ensure_pre_downloads(self) -> None:
         """
-        Enforces a delay before doing pre-download of the song that was just queued.
-        Should only be called from add_entry() after append.
+        Ensure that the configured number of songs are pre-downloaded. This is controlled
+        by max_pre_downloads.
         """
         if not self.bot.config.pre_download_next_song:
             return
 
         if not self.entries:
             return
-
+        
         await asyncio.sleep(DEFAULT_PRE_DOWNLOAD_DELAY)
 
-        if new_entry:
-            log.everything(  # type: ignore[attr-defined]
-                "Pre-downloading next track:  %r", new_entry
-            )
-            new_entry.get_ready_future()
+        # how many songs should be pre-downloaded?
+        max_pre_downloads = self.bot.config.max_pre_downloads
+
+        # how many songs are already pre-downloaded or are currently being pre-downloaded?
+        pre_downloaded_songs = 0
+        pre_downloaded_songs = sum(1 for entry in self.entries if entry.is_downloaded or entry.is_downloading)
+
+        # how many songs do we need to pre-download?
+        needed_pre_downloads = max_pre_downloads - pre_downloaded_songs
+
+        if needed_pre_downloads <= 0:
+            return
+
+        # what songs need to be pre-downloaded?
+        songs_to_pre_download = []
+        for entry in self.entries:
+            if not entry.is_downloaded and not entry.is_downloading:
+                songs_to_pre_download.append(entry)
+                if len(songs_to_pre_download) >= needed_pre_downloads:
+                    break
+
+        # pre-download the songs
+        for entry in songs_to_pre_download:
+            entry.get_ready_future()
 
     def peek(self) -> Optional[EntryTypes]:
         """
