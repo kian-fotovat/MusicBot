@@ -134,7 +134,10 @@ class GIT:
             if not git_bin:
                 return ("", "")
 
-            gitbytes = subprocess.check_output([git_bin, "fetch", "--dry-run"])
+            gitbytes = subprocess.check_output(
+                [git_bin, "fetch", "--dry-run"],
+                stderr=subprocess.STDOUT
+            )
             lines = gitbytes.decode("utf8").split("\n")
             for line in lines:
                 parts = line.split()
@@ -841,7 +844,7 @@ def parse_cli_args() -> argparse.Namespace:
 
     # Show version and exit.
     if args.show_version:
-        print("kian-fotovat/MusicBot\n" + _L("Version:  %s") % (BOTVERSION) + "\n")
+        print("Just-Some-Bots/MusicBot\n" + _L("Version:  %s") % (BOTVERSION) + "\n")
         sys.exit(0)
 
     if -1 < args.keep_n_logs <= MAXIMUM_LOGS_LIMIT:
