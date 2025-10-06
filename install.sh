@@ -1013,7 +1013,6 @@ case $DISTRO_NAME in
     ;;
 
 # Legacy install, needs testing.
-# Modern Raspberry Pi OS does not return "Raspbian"
 *"Raspbian"*)
     if [ "$INSTALL_SYS_PKGS" == "1" ] ; then
         $SUDO_BIN apt-get update -y
@@ -1026,12 +1025,6 @@ case $DISTRO_NAME in
             unzip curl git ffmpeg
 
         build_python
-
-        curl -o jq.tar.gz https://github.com/stedolan/jq/releases/download/jq-1.5/jq-1.5.tar.gz
-        tar -zxvf jq.tar.gz
-        cd jq-1.5 || exit_err "Fatal:  Could not change directory to jq-1.5"
-        ./configure && make && $SUDO_BIN make install
-        cd .. && rm -rf ./jq-1.5
     fi
     if [ "$INSTALL_BOT_BITS" == "1" ] ; then
         pull_musicbot_git
