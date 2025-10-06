@@ -114,7 +114,10 @@ def check_bot_updates(git_bin: str, branch_name: str) -> Optional[Tuple[str, str
     """Attempt a dry-run with git fetch to detect updates on remote."""
     try:
         updates = (
-            subprocess.check_output([git_bin, "fetch", "--dry-run"])
+            subprocess.check_output(
+                [git_bin, "fetch", "--dry-run"],
+                stderr=subprocess.STDOUT
+            )
             .decode("utf8")
             .split("\n")
         )
