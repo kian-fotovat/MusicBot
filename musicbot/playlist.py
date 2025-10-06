@@ -436,11 +436,12 @@ class Playlist(EventEmitter, Serializable):
             self.entries.appendleft(entry)
         else:
             self.entries.append(entry)
-
-        self.bot.create_task(
-            self._ensure_pre_downloads(),
-            name="MB_EnsurePreDownloads"
-        )
+            
+        if self.bot.config.pre_download_next_song:
+            self.bot.create_task(
+                self._ensure_pre_downloads(),
+                name="MB_EnsurePreDownloads"
+            )
 
         if self.bot.config.round_robin_queue and not entry.from_auto_playlist:
             self.reorder_for_round_robin()
