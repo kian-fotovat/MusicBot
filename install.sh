@@ -510,7 +510,7 @@ function generate_service_file() {
     # generate a .service file in the current directory.
     cat << EOSF > "$1"
 [Unit]
-Description=Just-Some-Bots/MusicBot a discord.py bot that plays music.
+Description=kian-fotovat/MusicBot a discord.py bot that plays music.
 
 # Only start this service after networking is ready.
 After=network.target
