@@ -8,7 +8,7 @@
 
 
 [Unit]
-Description=Just-Some-Bots/MusicBot a discord.py bot that plays music.
+Description=kian-fotovat/MusicBot a discord.py bot that plays music.
 
 # Only start this service after networking is ready.
 After=network.target

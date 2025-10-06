@@ -841,7 +841,7 @@ def parse_cli_args() -> argparse.Namespace:
 
     # Show version and exit.
     if args.show_version:
-        print("Just-Some-Bots/MusicBot\n" + _L("Version:  %s") % (BOTVERSION) + "\n")
+        print("kian-fotovat/MusicBot\n" + _L("Version:  %s") % (BOTVERSION) + "\n")
         sys.exit(0)
 
     if -1 < args.keep_n_logs <= MAXIMUM_LOGS_LIMIT:
